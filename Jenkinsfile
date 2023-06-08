@@ -20,9 +20,10 @@ pipeline{
                 }
             }
         }
-        stage('Deploy'){
+        stage('Deploy App On POrt 8001 With Docker Compose File'){
             steps{
                 echo "Deploying"
+		sh "docker-compose down && docker-compose up -d --no-deps --build"
             }
         }
     }
